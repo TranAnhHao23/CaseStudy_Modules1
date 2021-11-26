@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="fullCSS.css">
+
+</head>
+
+<body >
+<div id="divtable">
+    <table id="header">
+        <tr>
+            <th colspan="2"> X - O WITH MY FEN</th>
+
+        </tr>
+        <tr>
+            <th colspan="2" style="font-size: 20px; color: black">MY GAME - MY RULES</th>
+        </tr>
+        <tr>
+            <td class="score"><b>SCORE X: <i><span id="xScore"></span></i></b></td>
+            <td class="score"><b>SCORE O: <i><span id="oScore"></span></i></b></td>
+        </tr>
+
+    </table>
+    <div id="table"></div>
+</div>
+<div id="divcontrol">
+    <div><b><p style="font-size: 40px;font-family: TechnicBold; margin-top: 0">NEXT TURN</p></b>
+    </div>
+    <div id="imgPlayer">
+    </div>
+    <br><br>
+    <div>
+        <form>
+            <button type="button" onclick="Play()">PLAY</button>
+            <br><br>
+            <button type="button" onclick="Surrender()">SURRENDER</button>
+            <br><br>
+            <button type="button"  onclick="Undo()"> UNDO</button>
+        </form>
+    </div>
+</div>
+</body>
+<script src="CaroBoard.js"></script>
+</html>

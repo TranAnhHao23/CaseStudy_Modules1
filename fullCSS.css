@@ -1,0 +1,83 @@
+#divtable {
+    width: 1000px;
+    text-align: center;
+    float: left;
+    margin-left: 0px;
+}
+
+#divcontrol {
+    width: 300px;
+    height: 500px;
+    text-align: center;
+    float: left;
+    margin-right: 0px;
+    background-color: #FFF;
+    opacity: 0.7;
+    /*overflow: hidden;*/
+    border-radius: 20px;
+}
+
+.score{
+      font-family: TechnicBold;
+      font-size: 25px;
+      color: orangered;
+  }
+.cell{
+    width: 40px;
+    height: 40px;
+    font-size: 9px;
+    border: 1px solid black;
+    cursor: pointer;
+    margin: 0;
+    background-repeat: round;
+    background-color: #ffffff;
+    overflow: hidden;
+    opacity: 0.65;
+}
+#header{
+    width: 1000px;
+    text-align: center;
+    margin-left:40px;
+
+}
+#table{
+    width:1000px;
+    height:800px;
+    /*float:left;*/
+    alignment: center;
+    text-align: center;
+    margin-left:100px;
+    margin-top:50px;
+    /*overflow:hidden;*/
+}
+#imgPlayer{
+    width:100px;
+    height:100px;
+    margin:auto;
+    margin-top:5px;
+    background-repeat:round;
+    background-color: #ffffff;
+}
+th{
+    font-size: 50px;
+    font-family: Starcraft;
+    color: darkred;
+}
+td{
+    padding: 0;
+}
+
+body{
+    padding: 30px;
+    /*background-image:url("img/2e2c0d84b3cc789221dd.jpg") ;*/
+    /*background-repeat: repeat-x;*/
+
+}
+button{
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    font-weight5: bold;
+    border-radius: 10px;
+    font-family: TechnicBold;
+}
