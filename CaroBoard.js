@@ -218,6 +218,11 @@ function Surrender() {
 }
 
 function Undo() {
+    if (l_played.length <= 0 || WinGame() === true) {
+        document.getElementById("imgPlayer").style.backgroundImage = ""
+        return;
+    }
+
     document.getElementsByClassName("cell").item(l_played[l_played.length - 1]).setAttribute("value", "-1")
     document.getElementsByClassName("cell").item(l_played[l_played.length - 1]).style.backgroundImage = ""
     l_played.pop();
@@ -228,8 +233,8 @@ function Undo() {
         currentP = 0
         document.getElementById("imgPlayer").style.backgroundImage = "url('img/Opng.png')"
     }
-}
 
+}
 
 let a = new Table(size);
 a.drawTable()
