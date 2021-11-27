@@ -9,6 +9,10 @@ let AI = false  // Check lại, có thể bỏ
 let scoreX = 0; // Điểm số
 let scoreO = 0; // Điểm số
 
+let clap = new Audio(); // Tạo nhạc vỗ tay hay hay
+
+clap.src = "sound/Tieng-vo-tay-www_tiengdong_com.mp3"
+
 // Đầu tiên là tạo table
 
 class Table {
@@ -73,15 +77,17 @@ function play(id) {
     }
     // Sau này có thể viết AI ở đây.
     if (win) {
-
+        clap.play()
         if (pwin === 0) {
-            alert('Player "O" win')
+            document.getElementById("banDuc").style.display = "block";
             scoreO = scoreO + 1;
             document.getElementById("oScore").innerHTML = scoreO;
+            document.getElementById("banDucToi").innerHTML = 'Player "O" Win'
         } else {
-            alert('Player "X" win')
+            document.getElementById("banDuc").style.display = "block";
             scoreX = scoreX + 1;
             document.getElementById("xScore").innerHTML = scoreX;
+            document.getElementById("banDucToi").innerHTML = 'Player "X" Win'
 
         }
         inGame = false;
@@ -98,7 +104,6 @@ function GetBoard() {
 
     return originalBoard;
 }
-
 
 // How to win nè
 function WinGame() {
@@ -195,7 +200,7 @@ function MouseOver(id) {
     if (inGame === false) {
         return
     }
-    document.getElementsByClassName("cell").item(id).style.backgroundColor = "#ffc0cb";
+    document.getElementsByClassName("cell").item(id).style.backgroundColor = "#F9E79F";
 }
 
 function MouseOut(id) {
@@ -207,9 +212,12 @@ function MouseOut(id) {
 
 // Các chức năng của nút nè
 function Play() {
-    let a = new Table(size);
-    a.drawTable()
+    let newGame = new Table(size);
+    newGame.drawTable()
     inGame = true;
+    document.getElementById("banDuc").style.display = "none";
+    l_played = []
+    clap.pause()
 
 }
 
@@ -236,5 +244,7 @@ function Undo() {
 
 }
 
-let a = new Table(size);
-a.drawTable()
+
+
+let newGame = new Table(size);
+newGame.drawTable()

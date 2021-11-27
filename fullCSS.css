@@ -58,6 +58,25 @@
     background-repeat:round;
     background-color: #ffffff;
 }
+
+#banDuc{
+    top: 300px;
+    left: 330px;
+    width: 400px;
+    height: 180px;
+    background: #e7e7e7;
+    z-index: 9;
+    display: none;
+    border: 1px solid #999999;
+    border-radius: 20px;
+    text-align: center;
+    font-family: Starcraft;
+    font-size: 30px;
+    color: red;
+    box-shadow: 0 15px 20px rgba(3,3,3,0.3);
+
+
+}
 th{
     font-size: 50px;
     font-family: Starcraft;
@@ -74,10 +93,18 @@ body{
 
 }
 button{
+    /*display: block;*/
     width: 150px;
     height: 50px;
     font-size: 20px;
     font-weight5: bold;
     border-radius: 10px;
     font-family: TechnicBold;
+    color: white;
+
+}
+button:hover{
+    box-shadow: 0 15px 20px rgba(3,3,3,0.3);
+    cursor: pointer;
+    /*background-color: #33FF66!important;*/
 }
