@@ -3,18 +3,16 @@ let size = 20; // Kích thước bàn cờ, có thể tạm bỏ đi
 let currentP = Math.round(Math.random()) // trả về 0 và 1, đặt 0 là O, 1 là X
 let inGame = false // phải bấm Play thì mới có thể chơi được
 let l_played = [], l_win = []  // length player và length win để test game và undo
-
 let AI = false  // Check lại, có thể bỏ
-
 let scoreX = 0; // Điểm số
 let scoreO = 0; // Điểm số
 
-let clap = new Audio(); // Tạo nhạc vỗ tay hay hay
+let result = false
 
+let clap = new Audio(); // Tạo nhạc vỗ tay hay hay
 clap.src = "sound/Tieng-vo-tay-www_tiengdong_com.mp3"
 
 // Đầu tiên là tạo table
-
 class Table {
 
     size
@@ -37,8 +35,6 @@ class Table {
         data += '</table>'
         document.getElementById("table").innerHTML = data
     }
-
-
 }
 
 // Bắt đầu làm lệnh chơi chơi nào
@@ -60,9 +56,6 @@ function play(id) {
     dataCel.item(position).setAttribute("value", currentP.toString())
     l_played.push(position);
 
-    let win = WinGame();
-    let pwin = currentP;
-
     if (currentP === 0) {
         currentP = 1;
     } else {
@@ -75,10 +68,9 @@ function play(id) {
     } else {
         document.getElementById("imgPlayer").style.backgroundImage = "none";
     }
-    // Sau này có thể viết AI ở đây.
-    if (win) {
+    if (WinGame() === true) {
         clap.play()
-        if (pwin === 0) {
+        if (currentP === 1) {
             document.getElementById("banDuc").style.display = "block";
             scoreO = scoreO + 1;
             document.getElementById("oScore").innerHTML = scoreO;
@@ -88,8 +80,8 @@ function play(id) {
             scoreX = scoreX + 1;
             document.getElementById("xScore").innerHTML = scoreX;
             document.getElementById("banDucToi").innerHTML = 'Player "X" Win'
-
         }
+        result = false
         inGame = false;
     }
 
@@ -107,7 +99,7 @@ function GetBoard() {
 
 // How to win nè
 function WinGame() {
-    let result = false
+
     let board = GetBoard() //Check lại xem nào
     for (let i = 0; i < size; i++) {
         for (let j = 0; j < size; j++) {
@@ -194,7 +186,6 @@ function winCross2(i, j, board) {
     }
 }
 
-
 // Làm đẹp tý bằng mouseover và mouseout
 function MouseOver(id) {
     if (inGame === false) {
@@ -223,6 +214,8 @@ function Play() {
 
 function Surrender() {
     alert("Ôi bạn ơi, tôi phải hành hạ bạn đến chết")
+    document.getElementById("banDuc").style.display = "none"
+    clap.pause()
 }
 
 function Undo() {
@@ -241,10 +234,15 @@ function Undo() {
         currentP = 0
         document.getElementById("imgPlayer").style.backgroundImage = "url('img/Opng.png')"
     }
-
 }
-
-
+function playToWin(keydown){
+    switch (keydown.keyCode){
+        case 75:
+            Play();
+            break;
+    }
+}
+window.addEventListener("keydown",playToWin)
 
 let newGame = new Table(size);
 newGame.drawTable()
